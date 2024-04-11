@@ -81,25 +81,49 @@ print(list(dict1.values()))
 # 3. -> The third is item(), returns a list of tuples each tuple containing the key and value of each dictionary pair. Lets check this out
 print(list(dict1.items()))
 
-# 1. Create a list of "person" dictionaries with a name, age and a list of hobbies for each person. Fill any data you want.
-person = [{'Name': 'John', 'Age': '19', 'Hobbies': ['Football', 'Gaming', 'Cooking']} , {'Name': 'Peter', 'Age': '18', 'Hobbies': ['Football', 'Music', 'Eating']} , {'Name': 'Daniel', 'Age': '19', 'Hobbies': ['Travelling', 'Board games']}]
-print(person)
+# create a python program that captures the anmes and a list of five subjects scores and then stores the information to a dictionary, the program then outputs the average score of the student.
 
-# output: "John likes cooking and Peter likes eating"
-print(f"{person[0]['Name']} likes {person[0]['Hobbies'][2]} and {person[1]['Name']} likes {person[1]['Hobbies'][2]}")
-
-# 2. a. Create a python dictionary with keys a, b and c having lists as values of the keys, 1-10, 11-20 and 21-30 respectively
-dictionary = {'a':list(range(1, 11))}, {'b':list(range(11, 21))}, {'c':list(range(21, 21))}
-dictionary = dict(a = list(range(1, 11)), b= list(range(11, 21)), c = list(range(21, 31)))
-print(dictionary)
-
-# 2. b. Then from the above dictionary access elements 13 and output it
-print(dictionary['b'][2])
-
-# Create a python that captures the names and a list of  5 subject marks of students and then stores that information to a dictionary, the program then outputs the average score to the student
+# ask for the student name
+name = input("Enter the student name: ")
+# ask for the student scores
+math = int(input("Enter the score for maths: "))
+english = int(input("Enter the score for english: "))
+kiswahili = int(input("Enter the score for kiswahili: "))
+science= int(input("Enter the score for science: "))
+sst = int(input("Enter the score for sst: "))
 
 
-# Prompt user to input his or her name
-name = ("please enter your name: ")
-print(name)
-# Ask for the student scores
+# add the scores to a list
+# scores = [math, english, kiswahili, science, sst]
+# scores = []
+
+# scores.append(math)
+# scores.append(english)
+# scores.append(kiswahili)
+# scores.append(science)
+# scores.append(sst)
+
+# average = sum(scores) / len(scores)
+
+
+# Store them in a variable
+students = {
+        'name': name,
+        'math': math,
+        'english':english,
+        'kiswahili':kiswahili,
+        'science':science,
+        'sst':sst,
+}
+# compute the average score
+# average = (students['math'] + students['english'] + students['kiswahili'] + students['science'] + students['sst']) / 5
+
+scores_list = list(students.values()) #['Dennis', 'math', 'english', 'kiswahili', 'science', 'sst']) / 5
+scores_list_without_name = scores_list[1:] #[89, 90, 92, 67, 67]
+
+average = sum(scores_list_without_name) / len(scores_list_without_name)
+
+# output the average score
+# Print(students)
+
+# Next -> conversions
