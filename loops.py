@@ -74,3 +74,58 @@ for element_index in range(len(vendors)):
 # Nortel
 # Avaya
 # Juniper
+
+# Next while loop
+
+# Python 3 - while loop
+
+# The second type ofPython loop is while but what is the difference between for and while loop?
+
+# While unlike a for loop which executes a code block a number of times, depending on the sequence it iteratesover, a while loop executes a piece of code as long as a user- definned condition is evaluated as true. If the specified condition does not change, meaning it doesn't become false, then the while loop will continue running forever and we end up with an infinite loop.
+
+# When the condition becomes false, Python continues to execute the code following the while loop, if any.
+
+# Now, lets see an example of a while loop.
+#First we should create a variable, x, with the value of 1
+x = 1
+
+# Syntax for a while loop
+# to create a while loop, you have to type in the while keyword, followed by the condition you want to evaluate and then a colon. Below, after indentation you will specify the code to be executed as long as the condition is evaluated as true
+
+while x <= 10:
+    print(x)
+    x = x+ 1 # x  += 1 or x++
+    
+    
+# Another way to work with while loops is by using an expression as true, inorder to make python do something over and over again, until tou tell it to quit. 
+
+# A great example will be an interactive menu where the user can select a value and execute a piece of code, then return to the main menu and so on.
+
+# The way to do this is by simply using "while True", which makes sure that the expression is always evaluated as True. 
+# The syntax for this would be:
+# while True:
+    # Do something...
+    
+print("====================================")    
+#Output - 0 2 4 6 8
+
+a = 0
+while a <= 8:
+    print(a)
+    a = a + 2
+    
+print("=======================================")    
+# Output - 60 45 30 15  0 -15 -30 -45 -60
+b = 60
+while b >= -60:
+    print(b)
+    b = b - 15
+
+print("===================================")
+  
+
+
+# Often you wil see for loops within pther loops same thing if and while statements. You will also need to use 'if' elements inside 'for' loops or 'while' loops, depending on what you are trying to achieve in your programs.
+# Next we are going to take a look at this structures called 'Nested structures'
+
+# Next - Nested  Structures
