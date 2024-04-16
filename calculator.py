@@ -136,7 +136,7 @@ while True:
     elif operation == 9:
          num1 = float(input("Enter the  number in degrees: "))
          sin_of_num = float(math.sin(math.radians(num1)))
-         print(f"The sin of {num1} is {sin_of_num}")
+         print(f"The sin of {num1}\u00b0 is {sin_of_num}")
 
         
          # Ask the user to go back to the main menu
@@ -151,7 +151,7 @@ while True:
     elif operation == 10:
          num1 = float(input("Enter the  number in degrees: "))
          Cosine_of_num = float(math.cos(math.radians(num1)))
-         print(f"The Cosine of {num1} is {Cosine_of_num}")
+         print(f"The Cosine of {num1}\u00b0 is {Cosine_of_num}")
 
         
          # Ask the user to go back to the main menu
@@ -166,7 +166,7 @@ while True:
     elif operation == 11:
          num1 = float(input("Enter the  number in degrees: "))
          Tan_of_num = float(math.tan(math.radians(num1)))
-         print(f"The Tangent of {num1} is {Tan_of_num}")
+         print(f"The Tangent of {num1}\u00b0 is {Tan_of_num}")
 
         
          # Ask the user to go back to the main menu
