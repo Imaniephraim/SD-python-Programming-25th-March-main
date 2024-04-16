@@ -101,3 +101,79 @@ while True:
          else:
             break   
         
+    #7. Square root of a number  
+    elif operation == 7:
+         num1 = int(input("Enter the  number: "))
+         square_root = float(num1 ** 0.5)
+         print(f"The square root of {num1} is {square_root}")
+
+        
+         # Ask the user to go back to the main menu
+         back = input("Go back to the main menu? (Y/N): ")
+        
+         if back =="Y":
+            continue
+         else:
+            break 
+         
+   #8. Logarithm of a number  
+    elif operation == 8:
+         num1 = float(input("Enter the  number: "))
+         base = float(input("Enter the base value: "))
+         log = float(math.log(num1, base))
+         print(f"The logarithm of {num1} to base {base} is {log}")
+
+        
+         # Ask the user to go back to the main menu
+         back = input("Go back to the main menu? (Y/N): ")
+        
+         if back =="Y":
+            continue
+         else:
+            break      
+         
+   #9. sin of a number  
+    elif operation == 9:
+         num1 = float(input("Enter the  number in degrees: "))
+         sin_of_num = float(math.sin(math.radians(num1)))
+         print(f"The sin of {num1} is {sin_of_num}")
+
+        
+         # Ask the user to go back to the main menu
+         back = input("Go back to the main menu? (Y/N): ")
+        
+         if back =="Y":
+            continue
+         else:
+            break
+         
+   #10. Cosine of a number  
+    elif operation == 10:
+         num1 = float(input("Enter the  number in degrees: "))
+         Cosine_of_num = float(math.cos(math.radians(num1)))
+         print(f"The Cosine of {num1} is {Cosine_of_num}")
+
+        
+         # Ask the user to go back to the main menu
+         back = input("Go back to the main menu? (Y/N): ")
+        
+         if back =="Y":
+            continue
+         else:
+            break
+         
+   #11. Tangent of a number  
+    elif operation == 11:
+         num1 = float(input("Enter the  number in degrees: "))
+         Tan_of_num = float(math.tan(math.radians(num1)))
+         print(f"The Tangent of {num1} is {Tan_of_num}")
+
+        
+         # Ask the user to go back to the main menu
+         back = input("Go back to the main menu? (Y/N): ")
+        
+         if back =="Y":
+            continue
+         else:
+            break 
+   
