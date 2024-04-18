@@ -54,3 +54,4 @@ def menu():
         selection = input(MENU_PROMPT)
         
 # Call the menu function here
+menu()
