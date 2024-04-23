@@ -94,5 +94,21 @@ def delete_book(title):
             connection.close()
             print(f"Book with title {book[1]} has been deleted successfully")
         else:
-            print(f"Book with name {book[1]} does not exist in our DB")    
+            print(f"Book with name {book[1]} does not exist in our DB") 
+            
+def count_books():
+    # create the database connection 
+    connection = sqlite3.connect(db)
+    # create the display all books query
+    query = "SELECT  count(*) FROM books"
+    # CREATE CURSOR OBJECT
+    cursor = connection.cursor()
+    # execute the query
+    cursor.execute(query)
+    # retrieve/read all books from db
+    count = cursor.fetchall()
+    # close the db connection
+    connection.close()
+    # return the books list
+    return count[0][0]
         

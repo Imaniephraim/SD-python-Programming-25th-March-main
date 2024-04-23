@@ -53,12 +53,19 @@ def prompt_add_book():
     author = input("Enter the author of  the new book: ")
     database.add_book(title,author)
 
-# a function to list all thebooks 
+# a function to list all the books 
 def list_books():
+    # get the books count
+    books_count = database.count_books()
+    # get all the books from the database
     books = database.get_all_books()
-    for book in books:
+    # a variable for the bookscount display logic
+    s = "s" if books_count > 1 or books_count <= 0  else ""
+    # display the count to the user
+    print(f"You have {books_count} book{s} in your collection.")
+    for idx, book in enumerate(books):
         read = "Yes" if book [3] == '1' else "No"
-        print(f"{book[1]} written by {book[2]}, read:{read}")
+        print(f"{idx}. {book[1]} written by {book[2]}, read:{read}")
         
 # A function to prompt the user to mark a book as read
 def prompt_mark_book_as_read():
