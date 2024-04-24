@@ -5,8 +5,26 @@ from fpdf import FPDF
 
 class User:
     """Represents a User that buys a cinema seat"""
+    # constructor
+    def __init__(self, name):
+        self.name = name
+        
+    def buy(self, seat, card):
+        """Buys the seat if the card is valid"""
+        if seat.is_free() == True:
+            if card.validate(seat.get_price()):
+                seat.occupy()
+                # generate the pdf ticket hre
+                ticket = Ticket(user=self, price=seat.get_price(), seat_number=seat.seat_id)
+                ticket.to_pdf()
+                return "Purchase was successful!!!"
+            else:
+                return "There was a problem with your card!!!"
+        else:
+            return "Seat is Taken!!!"
+
+class Seat:
     database = 'cinema.db'
-    
     # constructor
     def __init__(self, seat_id):
         self.seat_id = seat_id
@@ -47,8 +65,7 @@ class User:
         connection.commit()
         connection.close()
         
-class Seat:
-    """Represents a cinema seat that can be purchased"""
+
     
 class Card:
     """Represents a bank card needed to finalise a seat purchase"""
@@ -81,3 +98,78 @@ class Card:
         
 class Ticket:
     """Represents a cinema ticket purchased by the user"""
+    def __init__(self, user, price, seat_number):
+        self.user = user
+        self.price = price
+        self.seat_number = seat_number
+        self.id = "".join([random.choice(string.ascii_uppercase) for i in range (10)])
+        
+    
+    # a method to generate the pdf
+
+    def to_pdf(self):
+
+        """Creates a PDF Ticket"""
+
+        pdf = FPDF(orientation='P', unit='pt', format='A4')
+
+        pdf.add_page()
+
+
+
+
+# Create the ticket title
+
+        pdf.set_font('Times', style='B', size=24)
+
+        pdf.cell(w=0, h=80, txt='CPL DIGITAL Cinema Ticket', border=1, ln=1, align='C')
+
+# create the user name cell
+
+        pdf.set_font('Times', style='B', size=14)
+
+        pdf.cell(w=100, h=25, txt='Name:', border=1)
+
+        pdf.set_font('Times', style='B', size=14)
+
+        pdf.cell(w=0, h=25, txt=self.user.name, border=1, ln=1)
+
+# create the ticket id cell
+
+        pdf.set_font('Times', style='B', size=14)
+
+        pdf.cell(w=100, h=25, txt='Ticket ID:', border=1)
+
+        pdf.set_font('Times', style='B', size=14)
+
+        pdf.cell(w=0, h=25, txt=self.id, border=1, ln=1)
+        
+# create the seat number cell
+
+        pdf.set_font('Times', style='B', size=14)
+
+        pdf.cell(w=100, h=25, txt='Ticket ID:', border=1)
+
+        pdf.set_font('Times', style='B', size=14)
+
+        pdf.cell(w=0, h=25, txt=self.seat_number, border=1, ln=1)
+        
+# output the pdf ticket
+        pdf.output(f"{self.user.name}_{self.id}_{self.seat_number}.pdf")
+        
+# run the app
+if __name__ == '__main__':
+    name = input("Enter Your Full Names: ")
+    seat_id = input('Preferred seat: ')
+    card_type = input("Your card type: ")
+    card_number = input('Your card number: ')
+    card_cvc = input("Your card cvc: ")
+    card_holder = input('Your card holder name: ')
+   
+    # create objects here
+    user = User(name)
+    seat = Seat(seat_id)
+    card = Card(card_type, card_cvc, card_number, card_holder)
+    
+    # buy the seat
+    print(user.buy(seat, card))
